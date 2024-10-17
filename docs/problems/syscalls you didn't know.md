@@ -21,7 +21,7 @@ vmstat 1 5
 ![vmstat picture](/img/vmstat.png)
 
 <details>
-<summary><i>What each information represents? </i></summary>
+<summary><i>What represents each information ? </i></summary>
 
 - Procs
     - r: The number of processes waiting for run time.
@@ -88,7 +88,7 @@ iostat -h
 ![iostat picture](/img/iostat.png)
 
 <details>
-<summary><i>What each information represents?</i></summary>
+<summary><i>What represents each information ?</i></summary>
 
 %user  Show  the  percentage  of CPU utilization that occurred while executing at the user level (application).
 
@@ -132,7 +132,7 @@ It dynamically shows administrators which processes are consuming processor and 
 > I intentionally created a zombie process to see here the info 
 
 <details>
-<summary><i>What each information represents?</i></summary>
+<summary><i>What represents each information ?</i></summary>
 
 - us is the percent of time spent running user processes.
 - sy is the percent of time spent running the kernel.
