@@ -60,6 +60,16 @@ Hello world!
 In the example above, what is below the fork will be copied to the new process (child) and will be executed.
 So, the printf will be run by parent and child.
 
+<details>
+<summary><i>🍵 Coffee brake with some memes</i></summary>
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0OK-ZozGy7L-A55lemFJFxYHDWnktzTh4g&s)
+![](https://preview.redd.it/forkingchildren-v0-inrdlfw64mic1.jpeg?auto=webp&s=aa40830be51dbc20b8420b264e037f6ae179e427)
+![](https://matttu.com/assets/memes/cs-2020-04-08.png)
+![](https://preview.redd.it/i8wiq9ddhrx71.png?auto=webp&s=1787e07a20c9f8ba6fd6367c4bd34cf897693cdc)
+
+</details>
+
 ## Sample for code visualization
 
 Before getting deeper, there is a sample code we will give you. It will generate an image based on what processes are created in a c file.
