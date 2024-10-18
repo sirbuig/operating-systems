@@ -1,12 +1,6 @@
 # Understand the process creation
 Concept, motivation, code, examples
 
-## Table of contents: 
-1. [Definition](#definition)
-2. [Why do we want to create processes](#why-do-we-want-to-create-processes)
-3. [How is it in code](#how-is-it-in-code)
-4. [Sample for code to visualization](#sample-for-code-visualization)
-5. [Examples (easy to hard)](#examples)
 
 ## Definition
 
@@ -61,7 +55,7 @@ In the example above, what is below the fork will be copied to the new process (
 So, the printf will be run by parent and child.
 
 <details>
-<summary><i>🍵 Coffee brake with some memes</i></summary>
+<summary><i>🍵 Coffee break with some memes</i></summary>
 
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo0OK-ZozGy7L-A55lemFJFxYHDWnktzTh4g&s)
 ![](https://preview.redd.it/forkingchildren-v0-inrdlfw64mic1.jpeg?auto=webp&s=aa40830be51dbc20b8420b264e037f6ae179e427)
@@ -295,10 +289,54 @@ if(fork() && (!fork())){
 }
 ```
 
-### Further reading:
+## Use fork in problems
+
+Let's create a simple problem. We want to printf for n times "Hello world" and for each print we will use a child.
+
+```c title="multi-process hello world"
+#include <dirent.h> 
+#include <stdio.h> 
+#include <errno.h>
+#include <unistd.h>
+#include<sys/wait.h>
+#include<stdlib.h>
+
+
+int main(int argc, char *argv[]){
+    //we create n processes
+    for(int i = 1; i <= atoi(argv[1]); i ++){
+        int pid = fork();
+        if (pid < 0){
+            return errno;
+        }
+        else if (pid == 0){
+            //kiddo
+            printf("Hello world, %d\n", i); 
+            printf("Done Parent %d Me %d\n", getppid(), getpid());
+
+           return 0; //The child kills himself
+        }
+    }
+    //we wait after n processes
+    for(int i = 1; i <= atoi(argv[1]); i ++){
+        wait(NULL);
+    }
+
+    
+    return 0;
+}
+```
+At each iteration we will do a fork and create a child which does what he needs to do and return 0.   
+The intuition is that we will have 2^n processes, but in fact we will have n processes because of `return 0`.
+
+To ensure that our processes run in parallel we need to do the last for (waiting n times). If we would have put the wait in the first for,
+it wouldn't be run on parallel. 
+
+
+## Further reading:
 https://blog.chromium.org/2008/09/multi-process-architecture.html
 
-### References:
+## References:
 https://stackoverflow.com/questions/985051/what-is-the-purpose-of-fork   
 https://stackoverflow.com/questions/5839519/motivation-for-spawning-a-new-process-v-thread   
 https://www.scaler.com/topics/c-fork/   
