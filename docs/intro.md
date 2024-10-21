@@ -5,6 +5,12 @@ sidebar_position: 1
 
 # Welcome to the Operating System tutoring 2024 - 2025
 
+:::tip upcoming week (4)
+- talk about `why` you should learn at operating systems course
+- processes (`fork()`), why use them, visual representation for multiple processes with parents and children, examples in real practice and exercises
+- zombie and orphan processes + code examples
+- Threads (TODO : to be added more)
+:::
 Each `Friday`, we will meet in classroom `219` from `14:00 to 16:00`.
 
 ### Important links:
