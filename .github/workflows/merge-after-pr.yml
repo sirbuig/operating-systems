@@ -1,0 +1,30 @@
+name: Post-Merge Workflow
+
+on:
+  pull_request:
+    types: [merged]  # Trigger this workflow only when a pull request is merged
+    branches:
+      - main
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: '18'  # Adjust the Node.js version if needed
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build and Deploy
+        env:
+          GIT_USER: MihaiB-dev  # Replace with your actual username
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_DEPLOY }}  # Use the GitHub token for authentication
+        run: |
+          yarn deploy
