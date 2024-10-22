@@ -1,0 +1,37 @@
+# This is a basic workflow that is manually triggered
+
+name: Weekly Merge and Deploy
+
+on:
+  schedule:
+    - cron: '00 14 * * FRI'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  merge-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: '20'
+
+      - name: Calculate Week Number
+        id: week_number
+        run: echo "WEEK_NUMBER=$(( ${{ github.run_number }} + 3 ))" >> $GITHUB_ENV
+        # Explanation: ${{ github.run_number }} starts at 1, so adding 3 starts at Week 4
+
+      - name: Create pull request Week to main
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout "week-$WEEK_NUMBER"
+          git pull
+          gh pr create --base main --head "week-$WEEK_NUMBER" --title "Merge Week $WEEK_NUMBER" --body "Automated merge for Week $WEEK_NUMBER"
+        env:
+          GIT_USER: MihaiB-dev  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_DEPLOY }} 
