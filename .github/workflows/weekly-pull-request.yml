@@ -15,11 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4.0.4
-        with:
-          node-version: '20'
-
       - name: Calculate Week Number
         id: week_number
         run: echo "WEEK_NUMBER=$(( ${{ github.run_number }} + 3 ))" >> $GITHUB_ENV
