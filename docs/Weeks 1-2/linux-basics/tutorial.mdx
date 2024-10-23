@@ -56,7 +56,7 @@ You can verify all of the above by typing these commands in the terminal:
 
 - `whoami` to check the username
 - `hostname` to check the hostname
-- `pwd` - to print the working directory
+- `pwd` to print the working directory
 
 ```console
 sirbu@pop-os:~$ whoami
@@ -80,7 +80,7 @@ You may feel confused about directories and navigating through files in your sys
 
 We need to know where we are in the **file hierarchy**, also called the **file system**. If Windows uses `\` as a path separator, Linux uses `/`, and `/` also represents the root of the file system.
 
-![Linux File System](/img/week1-linux/LinuxFileSystem.png)
+![Linux File System](media/LinuxFileSystem.png)
 
 As you can see, everything has its place in the system and is navigable, like a map.
 
@@ -220,7 +220,7 @@ sirbu@pop-os:~/demo/dummy-folder$ rmdir folder2/
 rm: cannot remove 'folder2/': Is a directory
 ```
 
-If `folder2` were empty, the command would have worked fine. Since it's not, so we must pass `-r` (for `--recursive`) for it to work.
+If `folder2` were empty, the command would have worked fine. Since it's not, we must pass `-r` (for `--recursive`) for it to work.
 
 ```console
 $ rm -r folder2/ # in this case, rm works as well
@@ -298,18 +298,18 @@ sirbu@pop-os:~/demo/test-and$
 - use `up arrow` and `down arrow` to navigate between your commands
 - use `sudo !!` to execute the last command with `admin` rights
 
-![](/img/week1-linux/tux_lolcat.png)
+![](media/TuxLolcat.png)
 
 ## Further Reading
 
 - [Absolute and relative paths](https://www.redhat.com/en/blog/linux-path-absolute-relative)
-- [Root Folder explained](https://averagelinuxuser.com/linux-root-folders-explained/)
-- [`cat` command and operators in action](https://hostman.com/tutorials/linux-cat-command/)
+- [Root Folders explained](https://averagelinuxuser.com/linux-root-folders-explained/)
+- [`cat` command with operators in action](https://hostman.com/tutorials/linux-cat-command/)
 - [Top Linux commands you must know](https://www.digitalocean.com/community/tutorials/linux-commands)
 - [Command Prompt](https://www.redhat.com/en/blog/command-prompt-tell-me)
+- [SSS Scratch Linux - Exploration tools](https://security-summer-school.github.io/essentials-security/Scratch%20Linux/System%20Exploration/Reading/exploration-tools)
 - [cowsay](https://github.com/piuccio/cowsay)
 - [lolcat](https://github.com/busyloop/lolcat)
-- [SSS Scratch Linux - Exploration tools](https://security-summer-school.github.io/essentials-security/Scratch%20Linux/System%20Exploration/Reading/exploration-tools)
 
 ## References
 
