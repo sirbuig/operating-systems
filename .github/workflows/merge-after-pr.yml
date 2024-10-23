@@ -26,6 +26,10 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          GIT_USER=${{ secrets.GITHUB_ACTOR }} yarn deploy
+          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+          
+      - name: Build and Deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GIT_USER: github-actions[bot]
+        run: |
+          yarn deploy
