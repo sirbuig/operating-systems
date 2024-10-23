@@ -30,11 +30,10 @@ jobs:
       
       - name: Set Remote URL with Authentication
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
           
       - name: Build and Deploy
         env:
           GIT_USER: github-actions[bot]
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           yarn deploy
