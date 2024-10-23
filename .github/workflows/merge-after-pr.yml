@@ -23,6 +23,15 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Set Remote URL with Authentication
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          
       - name: Build and Deploy
         env:
           GIT_USER: github-actions[bot]
