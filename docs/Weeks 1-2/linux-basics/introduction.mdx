@@ -1,0 +1,112 @@
+---
+sidebar_position: 1
+---
+
+# Meet the penguin 🐧
+
+In this course, you'll be required to use Linux as your operating system (which you may have already heard of), either by installing it on your computer or on a virtual machine.
+
+## What is Linux?
+
+Just like Windows or MacOS, Linux is an operating system (technically, it's a family of operating systems, as you'll see shortly).
+
+In fact, it's one of the most popular platforms on the planet: Android is based on a modified version of the Linux kernel (we'll see what the `kernel` is later) and many other products and companies run on Linux: Google, NASA, [CERN](https://linux.web.cern.ch/), [ISS](https://www.extremetech.com/extreme/155392-international-space-station-switches-from-windows-to-linux-for-improved-reliability) etc.
+
+From [supercomputers](https://www.stackscale.com/blog/most-powerful-supercomputers-linux/) to [bioinformatics](https://bioinformatics.ccr.cancer.gov/btep/why-should-biologists-learn-unix-for-bioinformatics/) and [web servers](https://www.logicmonitor.com/blog/9-reasons-linux-is-a-popular-choice-for-servers), they all rely on Linux.
+
+## Key events in the history of Linux
+
+These are the events that precedeed the development of Linux:
+
+- **1969**: Ken Thompson and Dennis Ritchie develop [**Unix**](https://www.wikiwand.com/en/articles/Unix) at **AT&T**.
+- **1970**: Unix is released. Thompson and Ritchie later rewrote it in C for portability, which led to Unix being copied and modified by academic institutions.
+- **1977**: **Berkeley Software Distribution (BSD)** is developed based on the 6th edition of Unix. Because it contains Unix code owned by AT&T,[ AT&T files a lawsuit](https://www.wikiwand.com/en/articles/UNIX_System_Laboratories,_Inc._v._Berkeley_Software_Design,_Inc.) hindering the development and adoption of BSD.
+- **1983**: Richard Stallman starts the **GNU Project** with the goal of creating a free UNIX-like operating system. He also writes the [**GNU General Public License**](https://www.wikiwand.com/en/articles/GNU_General_Public_License) or **GPL**. [Hurd](https://www.gnu.org/software/hurd/), the GNU kernel, didn't attract enough development effort, leaving GNU incomplete.
+- **1985**: Intel releases the [**80386**](https://www.wikiwand.com/en/articles/80386), the first x86 microprocessor with a 32-bit instruction set and a memory management unit with paging.
+- **1987**: Andrew S. Tanenbaum released **MINIX**, a Unix-like system intended for academic use. The source code for the system was available, but modification and redistribution were restricted. In addition, MINIX used a 16-bit design, which wasn't well adapted for the 32-bit Intel 386 architecture, a cheap and popular choice for personal computers.
+
+**TLDR**, at that time UNIX was a proprietary operating system and expensive for private use and the free open-source UNIX-like alternatives weren't mainstream enough.
+
+## "...just a hobby..."
+
+In 1991, [Linus Torvalds](https://www.wikiwand.com/en/articles/Linus_Torvalds) was a 21-year-old Computer Science student at the University of Helsinki.
+
+Frustrated with the existing operating systems of the time (Microsoft's MS-DOS and Apple's Mac OS - both closed source) and influenced by Minix (altough limited and just for academic purposes), he wanted something tailored for the Intel 80386 processor.
+
+As a result, he began developing his own free Unix-like kernel using the GNU tools and utilities.
+
+In august on the same year, [Linus announced his project](https://www.cs.cmu.edu/~awb/linux.history.html) on the Minix newsgroup:
+
+> "I'm doing a (free) operating system (just a hobby, won't be big and
+> professional like gnu) for 386(486) AT clones."
+
+What made Linux unique was the decision to release it under the GNU General Public License (GPL) in 1992. This meant that Linux was free to use, modify, and distribute, similar to the software being developed under the GNU Project. This licensing decision attracted developers and contributors from around the world, as they were able to participate in improving and expanding the kernel without legal restrictions.
+
+> "Making Linux GPLed was definitely the best thing I ever did."
+
+## Linux kernel
+
+Torvalds is still the maintainer of the Linux Kernel Repository and retains the highest authority to decide which new code is incorporated.
+
+You can find the Linux kernel source tree on GitHub: https://github.com/torvalds/linux.
+
+**Fun fact:** Torvalds is also the creator of [Git](https://git-scm.com/book/ms/v2/Getting-Started-A-Short-History-of-Git).
+
+## What is a `distro`?
+
+As it was mentioned earlier, Linux is in fact a family of open-source Unix-like operating systems based on the Linux kernel.
+
+A Linux distribution (often shortened to "distro" and also called "flavor") is a complete, ready-to-use operating system built around the Linux kernel, combined with additional software and libraries. It typically includes:
+
+- **The Linux kernel**: The core part of the operating system that manages hardware, memory, and processes.
+- **GNU tools and libraries**: Essential programs like the shell, compilers, and file utilities, often provided by the GNU Project.
+- **Package management system**: A system to install, update, and manage software packages (e.g., APT, YUM, or Pacman).
+- **Graphical User Interface (GUI)**: Most distros include a desktop environment for a graphical interface (e.g., GNOME, KDE, XFCE).
+- **Applications**: Standard applications like web browsers, office suites, text editors, and media players.
+
+The choice of components (kernel version, desktop environment, package management, etc.) varies between different distributions, which is why there are so many different flavors of Linux.
+
+Linux distros are classified by the package manager they use, the standard software they ship with, and the distribution from which they have forked.
+
+For example one of the most popular distros, Ubuntu, is a Debian-based system because it uses the Debian installation files and it is a branch off of Debian Linux.
+
+In order to comprehend the amount of distros developed, this is just a snapshot of the vast and constantly evolving Debian Family Tree:
+
+![Debian Family Tree](media/DebianFamilyTree.png)
+
+## Conclusion
+
+Over the decades, Linux has become a symbol of the open-source movement, encouraging collaboration, transparency, and free distribution of software.
+
+What started as Linus Torvalds' hobby project is now a cornerstone of modern computing and if that isn't inspiring enough, then I don't know what is.
+
+Hopefully, this introduction sparked your interest in the open-source spirit and now you're ready to dive in the Linux commands!
+
+## If I catched your interest...
+
+- [Distrochooser](https://distrochooser.de/)
+- [GNU/Linux Naming Controversy](https://www.wikiwand.com/en/articles/GNU/Linux_naming_controversy)
+- [Richard Stallman's take on the naming controversy](https://www.gnu.org/gnu/linux-and-gnu.html)
+- [Linux distros are very customizable](https://www.reddit.com/r/unixporn/)
+- [Build your own Linux](https://www.linuxfromscratch.org/lfs/)
+- [The mind behind Linux](https://youtu.be/o8NPllzkFhE?feature=shared)
+- [The Making of Linux: The World's First Open-Source Operating System](https://youtu.be/E0Q9KnYSVLc?feature=shared)
+- [The Making of GNU: The World's First Open-Source Software](https://youtu.be/sQDvkd2wtxU?feature=shared)
+
+## Just for LOLs
+
+- [Legendary NVIDIA moment](https://youtu.be/OF_5EKNX0Eg?feature=shared)
+- [Linus is known for being savage in his emails](https://github.com/corollari/linusrants)
+- [Hannah Montana Linux](https://hannahmontana.sourceforge.net/index.html)
+- [Tux the penguin](https://www.landley.net/history/mirror/linux/tux.html)
+
+## References
+
+- [Ways you use Linux everyday](https://opensource.com/article/19/8/everyday-tech-runs-linux)
+- [What is Linux](https://www.linux.com/what-is-linux/)
+- [About the Distros](https://www.linux.org/threads/about-the-distros.9112/)
+- [A short history of Git](https://git-scm.com/book/ms/v2/Getting-Started-A-Short-History-of-Git)
+- [Wikipedia - History of Linux](https://www.wikiwand.com/en/articles/History_of_Linux)
+- [Wikipedia - Unix](https://www.wikiwand.com/en/articles/Unix)
+- [Wikipedia - Linux](https://www.wikiwand.com/en/articles/Linux)
+- [Wikipedia - Linux distros](https://www.wikiwand.com/en/articles/Linux_distribution)
