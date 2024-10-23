@@ -1,8 +1,7 @@
 name: Post-Merge Workflow
 
 on:
-  pull_request:
-    types: [merged]  # Trigger this workflow only when a pull request is merged
+  push:
     branches:
       - main
       
