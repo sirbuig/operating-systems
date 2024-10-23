@@ -25,7 +25,7 @@ jobs:
         run: yarn build
 
       - name: Deploy to GitHub Pages
-        run: |
-          GIT_USER=${{ secrets.GITHUB_ACTOR }} yarn deploy
+        run: yarn deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GIT_USER: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
