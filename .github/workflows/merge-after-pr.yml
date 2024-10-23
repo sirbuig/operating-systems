@@ -12,18 +12,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.1
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: '18'  # Adjust the Node.js version if needed
+          node-version: '18' 
 
       - name: Install dependencies
         run: yarn install
 
       - name: Build and Deploy
         env:
-          GIT_USER: MihaiB-dev  # Replace with your actual username
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_DEPLOY }}  # Use the GitHub token for authentication
+          GIT_USER: github-actions[bot]
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           yarn deploy
