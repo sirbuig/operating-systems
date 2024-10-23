@@ -6,29 +6,25 @@ on:
       - main
       
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4.2.1
-        with:
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
 
-      - name: Set up Node.js
+      - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: '18' 
+          node-version: 20
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      
-      - name: Set Remote URL with Authentication
+      - name: Build Docusaurus site
+        run: yarn build
+
+      - name: Deploy to GitHub Pages
         run: |
           git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
           
