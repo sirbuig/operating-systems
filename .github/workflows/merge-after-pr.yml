@@ -24,12 +24,8 @@ jobs:
       - name: Build Docusaurus site
         run: yarn build
         
-      - name: Configure Git for Push
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-      
       - name: Deploy to GitHub Pages
-        run: yarn deploy
-        env:
-          GIT_USER: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
