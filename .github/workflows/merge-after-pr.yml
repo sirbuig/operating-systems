@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn
-
+        
       - name: Build Docusaurus site
         run: yarn build
         
