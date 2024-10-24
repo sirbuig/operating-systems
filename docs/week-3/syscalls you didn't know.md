@@ -23,35 +23,34 @@ vmstat 1 5
 <details>
 <summary><i>What represents each information ? </i></summary>
 
-- Procs
-    - r: The number of processes waiting for run time.
-    - b: The number of processes in uninterruptible sleep.
-- Memory
+- **Procs**
+    - `r`: The number of processes waiting for run time.
+    - `b`: The number of processes in uninterruptible sleep.
+- **Memory**
 
-    - swpd: the amount of virtual memory used.
-    - free: the amount of idle memory.
-    - buff: the amount of memory used as buffers.
-    - cache: the amount of memory used as cache.
-    - inact: the amount of inactive memory. (-a option)
-    - active: the amount of active memory. (-a option)
-- Swap
+    - `swpd`: the amount of virtual memory used.
+    - `free`: the amount of idle memory.
+    - `buff`: the amount of memory used as buffers.
+    - `cache`: the amount of memory used as cache.
+    - `inact`: the amount of inactive memory. (-a option)
+    - `active`: the amount of active memory. (-a option)
+- **Swap**
 
-    - si: Amount of memory swapped in from disk (/s).
-    - so: Amount of memory swapped to disk (/s).
-- IO
-    - bi: Blocks received from a block device (blocks/s).
-    - bo: Blocks sent to a block device (blocks/s).
-- System
-    - in: The number of interrupts per second, including the clock.
-    - cs: The number of context switches per second.
-- CPU
+    - `si`: Amount of memory swapped in from disk (/s).
+    - `so`: Amount of memory swapped to disk (/s).
+- **IO**
+    - `bi`: Blocks received from a block device (blocks/s).
+    - `bo`: Blocks sent to a block device (blocks/s).
+- **System**
+    - `in`: The number of interrupts per second, including the clock.
+    - `cs`: The number of context switches per second.
+- **CPU**  
   These are percentages of total CPU time.
-    - us: Time spent running non-kernel code. (user time, including nice time)
-    - sy: Time spent running kernel code. (system time)
-    - id: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time.
-    - wa: Time spent waiting for IO. Prior to Linux 2.5.41, included in idle.
-    - st: Time stolen from a virtual machine. Prior to Linux 2.6.11, unknown.
-    - 
+    - `us`: Time spent running non-kernel code. (user time, including nice time)
+    - `sy`: Time spent running kernel code. (system time)
+    - `id`: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time.
+    - `wa`: Time spent waiting for IO. Prior to Linux 2.5.41, included in idle.
+    - `st`: Time stolen from a virtual machine. Prior to Linux 2.6.11, unknown.
 </details>
 
 <details>
@@ -75,12 +74,12 @@ count is the number of updates.
 
 ## IOSTAT -h
 
-"The iostat command monitors system input/output device load by observing the time that the devices are active in relation to their average transfer rates.
-The iostat report shows:   
-CPU utilization   
-Device queue information   
-Service time  
-" wrote by IBM
+> "The iostat command monitors system input/output device load by observing the time that the devices are active in relation to their average transfer rates.
+> The iostat report shows:   
+> CPU utilization   
+> Device queue information   
+> Service time  
+> " wrote by IBM
 
 ```shell
 iostat -h
@@ -90,34 +89,34 @@ iostat -h
 <details>
 <summary><i>What represents each information ?</i></summary>
 
-%user  Show  the  percentage  of CPU utilization that occurred while executing at the user level (application).
+`%user`  Show  the  percentage  of CPU utilization that occurred while executing at the user level (application).
 
-%nice  Show the percentage of CPU utilization that occurred while  executing  at  the user level with nice priority.
+`%nice`  Show the percentage of CPU utilization that occurred while  executing  at  the user level with nice priority.
 
-%system Show  the  percentage  of CPU utilization that occurred while executing at the system level (kernel).
+`%system`Show  the  percentage  of CPU utilization that occurred while executing at the system level (kernel).
 
-%iowait Show the percentage of time that the CPU or CPUs were idle  during  which  the system had an outstanding disk I/O request.
+`%iowait` Show the percentage of time that the CPU or CPUs were idle  during  which  the system had an outstanding disk I/O request.
 
-%steal Show  the  percentage  of time spent in involuntary wait by the virtual CPU or CPUs while the hypervisor was servicing another virtual processor.
+`%steal` Show  the  percentage  of time spent in involuntary wait by the virtual CPU or CPUs while the hypervisor was servicing another virtual processor.
 
-%idle  Show the percentage of time that the CPU or CPUs were idle and the system  did not have an outstanding disk I/O request.
+`%idle`  Show the percentage of time that the CPU or CPUs were idle and the system  did not have an outstanding disk I/O request.
 
-Device : The device/partition name is listed in /dev directory.   
-tps : The number of transfers per second that were issued to the device. Higher tps means the processor is busier.   
-Blk_read/s : It shows the amount of data read from the device expressed in a number of blocks (kilobytes, megabytes) per second.   
-Blk_wrtn/s : The amount of data written to the device expressed in a number of blocks (kilobytes, megabytes) per second.   
-Blk_read : It shows the total number of blocks read.   
-Blk_wrtn : It shows the total number of blocks written.  
+`Device` : The device/partition name is listed in /dev directory.   
+`tps` : The number of transfers per second that were issued to the device. Higher tps means the processor is busier.   
+`Blk_read/s` : It shows the amount of data read from the device expressed in a number of blocks (kilobytes, megabytes) per second.   
+`Blk_wrtn/s` : The amount of data written to the device expressed in a number of blocks (kilobytes, megabytes) per second.   
+`Blk_read` : It shows the total number of blocks read.   
+`Blk_wrtn` : It shows the total number of blocks written.  
 
 
-hdX — ATA hard disk, pre-libata. You'll only see this with old distros (probably based on Linux 2.4.x or older)
-sdX — "SCSI" hard disk. Also includes SATA and SAS. And IDE disks using libata (on any recent distro).
-hdXY, sdXY — Partition on the hard disk hdX or sdX.
-loopX — Loopback device, used for mounting disk images, etc.
-loopXpY — Partitions on the loopback device loopX; used when mounting an image of a complete hard drive, etc.
-scdX, srX — "SCSI" CD, using same weird definition of "SCSI". Also includes DVD, Blu-ray, etc.
-mdX — Linux MDraid
-dm-X — Device Mapper. Use -N to see what these are, or ls -l /dev/mapper. Device Mapper underlies LVM2 and dm-crypt. If y
+`hdX` — ATA hard disk, pre-libata. You'll only see this with old distros (probably based on Linux 2.4.x or older)
+`sdX` — "SCSI" hard disk. Also includes SATA and SAS. And IDE disks using libata (on any recent distro).
+`hdXY, sdXY` — Partition on the hard disk hdX or sdX.
+`loopX` — Loopback device, used for mounting disk images, etc.
+`loopXpY` — Partitions on the loopback device loopX; used when mounting an image of a complete hard drive, etc.
+`scdX, srX` — "SCSI" CD, using same weird definition of "SCSI". Also includes DVD, Blu-ray, etc.
+`mdX` — Linux MDraid
+`dm-X`— Device Mapper. Use -N to see what these are, or ls -l /dev/mapper. Device Mapper underlies LVM2 and dm-crypt. If y
 
 **Easter egg : run the command iostat -p ALL -h**
 

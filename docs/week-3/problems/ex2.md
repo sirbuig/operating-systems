@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Exercise 2 (hard) - Search word
 What am I doing at this hour?
 
@@ -9,7 +13,7 @@ If it is found, write into a file "output.txt" the name of the file in which you
 
 You should use for this problem a buffer (read x characters at a time), imagine that the .txt might have a size of 20 GB.
 
-I recommend to create a function named : `void searchCharacters(char* input)` which writes in output.txt the result and takes as input the search string. It is faster this way :)
+I recommend to create a function named : `void searchCharacters(char* input)` which writes in output.txt the result and takes as input the search string. It is faster this way 😊
 #### [Download the test folder](/downloads/tests01.zip)
 
 ---
@@ -78,7 +82,7 @@ Having this questions in mind, let's start crafting :))
 #include <errno.h> 
 #include <fcntl.h> 
 #include <unistd.h> 
-#include<sys/stat.h>
+#include <sys/stat.h>
 #include <dirent.h>
 #include <string.h>
 
@@ -101,7 +105,7 @@ void searchCharacters(char* input){
         {
             char path[265];
             snprintf(path, sizeof(path), "tests01/%s", entry->d_name);
-            //ajutator pentru laborator 2
+            //helpful for lab 2
             int file_descriptor = open(path, O_RDONLY);
             
             stat(entry->d_name, &statbuf); //informations about the file are put in statbuf

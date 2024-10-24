@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Exercise 1 (easy) - Size of files
 The first step for falling into the darkness of c
 
@@ -8,7 +12,7 @@ learn how to search about them, and recap some c functions (good to know).
 The following information is also useful for the project part (after lab 8).
 
 ## Description
-Given a folder "testsEx2" with 3 .txt files in it, find the size of each file and write in "output.txt" the following : `[ filename ]: [ size in bytes] Bytes`.  
+Given a folder "tests01" with 3 .txt files in it, find the size of each file and write in "output.txt" the following : `[ filename ]: [ size in bytes] Bytes`.  
 
 #### [Download the test folder](/downloads/tests01.zip)
 
@@ -85,7 +89,7 @@ for `open`, `write` in order to open the output.txt and write there.
 int main() {
     int destination_fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
  
-    struct dirent *entry; // contine informatii despre un fisier din director
+    struct dirent *entry; //information about a file from a director
     DIR *dir = opendir("tests01");
 
     while((entry = readdir(dir)) != NULL) {
@@ -113,7 +117,7 @@ int main() {
 ```
 </details>
 
-Hope this problem helped you in some way :)) and get ready for exercise 2, which will take some of the information presented here
+Hope this problem helped you in some way 😊 and get ready for exercise 2, which will take some of the information presented here
 and add something spicy.
 
 
