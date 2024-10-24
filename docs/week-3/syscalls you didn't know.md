@@ -161,8 +161,8 @@ mebibyte (and similar units, such as kibibytes and gibibytes) differs slightly f
 Those are just a few of them, but just remember "you can access more information than you think".
 
 ### References 
-https://access.redhat.com/solutions/1160343
-https://man7.org/linux/man-pages/man1/iostat.1.html
-https://www.redhat.com/en/blog/interpret-top-output
+- https://access.redhat.com/solutions/1160343
+- https://man7.org/linux/man-pages/man1/iostat.1.html
+- https://www.redhat.com/en/blog/interpret-top-output
 
-https://stackoverflow.com/questions/25172425/create-zombie-process
+- https://stackoverflow.com/questions/25172425/create-zombie-process
