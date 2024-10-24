@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Syscalls you didn't know
 What power do you really have with your terminal?
 
