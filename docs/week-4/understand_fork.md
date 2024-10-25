@@ -1,21 +1,22 @@
 # Understand the process creation
-Concept, motivation, code, examples
 
+Concept, motivation, code, examples
 
 ## Definition
 
-- fork() is a primary method of process creation of an operating system like Unix.   
+- fork() is the primary method of process creation of an operating system like Unix.
 
-The newly created process is known as the `Child process`, and the process from which the child process is created is known as the `parent process`.
+The newly created process is known as the `Child process`, and the process from which the child process is created is known as the `Parent process`.
 
-- The C fork() function returns a **negative value** when the function fails to create a child process.   
+- The C fork() function returns a **negative value** when the function fails to create a child process.
 
-- The C fork() function returns a **zero value** to the child process that is newly created. On successful duplication of a process, 
-the PID of the child process is returned in the parent, and 0 is returned in the child process.
+- The C fork() function returns a **zero value** to the child process that is newly created. On successful duplication of a process,
+  the PID of the child process is returned in the parent, and 0 is returned in the child process.
 
 - The C fork() function returns a **positive value** to the parent process or the caller. The positive value consists of the process ID of that particular child process that is being created.
 
-How to get the pid: 
+How to get the pid:
+
 ```c
 pid_t pid = fork();
 ```
@@ -23,36 +24,39 @@ pid_t pid = fork();
 ## Why do we want to create processes
 
 Let's see some practical applications of fork:
+
 1. Shell uses fork to run programs that you invoke from cmd.
 2. Web servers like apache use fork to create multiple server processes, each of which handles requests in its own address space.
 3. Google Chrome uses fork to handle each page within separate process. See more on [further reading](#further-reading)
 4. When you want to isolate parts of the applications and if they crash/ leak memory/ misbehave, they can be killed/restarted without killing entire application
-5. By hackers (put here for learning purposes) : Fork bomb
+5. By hackers (put here for learning purposes): Fork bomb
 6. Used in pipes, two processes that work together. Send information to each other.
 
 ## How is it in code
 
 ```c
-#include <stdio.h> 
-#include <sys/types.h> 
-#include <unistd.h> 
-int main() 
-{ 
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main()
+{
     fork();
     printf("Hello world!\n");
-    return 0; 
-} 
+    return 0;
+}
 ```
 
 Output:
+
 ```shell
 Hello world!
 Hello world!
 ```
+
 ![example of fork](https://scaler.com/topics/images/output-fork-function.webp)
 
 In the example above, what is below the fork will be copied to the new process (child) and will be executed.
-So, the printf will be run by parent and child.
+So, `printf` will be run by parent and child.
 
 <details>
 <summary><i>🍵 Coffee break with some memes</i></summary>
@@ -66,13 +70,14 @@ So, the printf will be run by parent and child.
 
 ## Sample for code visualization
 
-Before getting deeper, there is a sample code we will give you. It will generate an image based on what processes are created in a c file.
+Before getting deeper, there is a sample code we will give you. It will generate an image based on what processes are created in a C file.
 
-**Prerequisites** : Download graphviz on your machine.
+**Prerequisites** : Download `graphviz` on your machine.
 
-**Usage** :  
-1. create a file named : `forks.log`
-2. Run the `script.py` code in a separate terminal.
+**Usage** :
+
+1. create a file named `forks.log`
+2. Run the `script.py` code in a separate terminal
 3. Run the `template.c`
 
 ```python title="script.py"
@@ -112,10 +117,13 @@ def monitor_log():
     last_size = os.path.getsize(log_file_path)
     while True:
         update_graph()
-        time.sleep(3)  
+        time.sleep(3)
+
+
 if __name__ == "__main__":
     monitor_log()
 ```
+
 ```c title="template.c"
 #include <stdio.h>
 #include <unistd.h>
@@ -142,7 +150,7 @@ int main() {
 
     // Try me
     // fork();
-    
+
     log_fork(getppid(), getpid());
     return 0;
 }
@@ -152,8 +160,8 @@ int main() {
 
 ### Part 1 - Show the picture, recreate the code
 
-**Exercise 1:**       
-   
+**Exercise 1:**
+
 ![part 1 exercise 1](/img/tutoriat2part1ex1.png)
 
 <details>
@@ -169,10 +177,11 @@ if(!fork()){
 
 Explanation:
 First, the first `fork()` is done, then `if(!fork())` means that the code continues if we are in the child process.
+
 </details>
 
 **Exercise 2**
-   
+
 ![part 1 exercise 2](/img/tutoriat2part1ex2.png)
 
 <details>
@@ -188,6 +197,7 @@ if(fork()){
 
 Explanation:
 First, the first `fork()` is done, then `if(fork())` means that the code continues if we are in the parent process.
+
 </details>
 
 **Exercise 3:**
@@ -210,17 +220,18 @@ if(!fork()){
     }
 }
 ```
+
 </details>
 
-**Exercise 4 (try yourself now and verify with the [sample code](#sample-for-code-visualization))**
-   
+**Exercise 4 (try to solve it and then verify the solution with the [sample code](#sample-for-code-visualization))**
+
 ![part 1 exercise 4](/img/tutoriat2part1exercise4.png)
 
-### Part 2 - Having the code, create the image   
+### Part 2 - Having the code, create the image
 
-**Exercise 1**   
-  
-```c 
+**Exercise 1**
+
+```c
 for(int i = 0; i < 2; i ++){
     if(fork()){
         fork();
@@ -233,13 +244,15 @@ for(int i = 0; i < 2; i ++){
 
 ![part 2 exercise 1](/img/tutoriat2part2exercise1.png)
 
-Explanataion: 
+Explanation:
 ![part2 exercise 1 solved](/img/tutoriat2part2exercise1solve.png)
+
 </details>
 
 **Exercise 2**
 
-For this one, find what it looks like, but also **what is the formula** to calculate how many new processes are created for any n given.
+For this one, find what it looks like, but also **what is the formula** to calculate how many new processes are created for any `n` given.
+
 ```c
 int n = 2;
 for(int i = 0; i < n; i ++){
@@ -248,15 +261,17 @@ for(int i = 0; i < n; i ++){
     }
 }
 ```
+
 <details>
 <summary><i>💡Solution</i></summary>
 
 ![part 2 exercise 2](/img/tutoriat2part2exercise2.png)
 
-Formula: 2^(n * (n + 1) / 2) - 1
+Formula: 2^(n \* (n + 1) / 2) - 1
 
 Human form:
 2^(how many forks are made) - (the main process which is not new)
+
 </details>
 
 **Exercise 3**
@@ -266,10 +281,11 @@ if(fork() || fork()){
     fork();
 }
 ```
-<details>
-    <summary><i>💡Solution</i></summary>
 
-    ![exercise 3](/img/tutoriat2part2exercise3.png)
+<details>
+<summary><i>💡Solution</i></summary>
+
+![exercise 3](/img/tutoriat2part2exercise3.png)
 
 This one is tricky. First it does the fork() and now we have the parent and the child.
 The parent returns something > 0 and the child returns 0. The `||` goes to the next element if we have false on the first argument
@@ -278,10 +294,12 @@ The parent returns something > 0 and the child returns 0. The `||` goes to the n
 The last fork is done for each parent from the if statement. We have (1 || 0), (0 || 1).
 
 If it is not yer clear, try with more forks in the if statement. For example `if(fork() || fork() || fork() )`
+
 </details>
 
 **Exercise 4 (try yourself now and verify with the [sample code](#sample-for-code-visualization))**
-```c 
+
+```c
 if(fork() && (!fork())){
     if(fork() || fork()){
         fork();
@@ -294,12 +312,12 @@ if(fork() && (!fork())){
 Let's create a simple problem. We want to printf for n times "Hello world" and for each print we will use a child.
 
 ```c title="multi-process hello world"
-#include <dirent.h> 
-#include <stdio.h> 
+#include <dirent.h>
+#include <stdio.h>
 #include <errno.h>
 #include <unistd.h>
-#include<sys/wait.h>
-#include<stdlib.h>
+#include <sys/wait.h>
+#include <stdlib.h>
 
 
 int main(int argc, char *argv[]){
@@ -311,7 +329,7 @@ int main(int argc, char *argv[]){
         }
         else if (pid == 0){
             //kiddo
-            printf("Hello world, %d\n", i); 
+            printf("Hello world, %d\n", i);
             printf("Done Parent %d Me %d\n", getppid(), getpid());
 
            return 0; //The child kills himself
@@ -322,24 +340,24 @@ int main(int argc, char *argv[]){
         wait(NULL);
     }
 
-    
     return 0;
 }
 ```
-At each iteration we will do a fork and create a child which does what he needs to do and return 0.   
-The intuition is that we will have 2^n processes, but in fact we will have n processes because of `return 0`.
 
-To ensure that our processes run in parallel we need to do the last for (waiting n times). If we would have put the wait in the first for,
-it wouldn't be run on parallel. 
+At each iteration, we will do a fork and create a child which does what he needs to do and then returns `0`.  
+The intuition is that we will have `2^n` processes, but in fact we will have `n` processes because of `return 0`.
 
+To ensure that our processes run in parallel, we need to do the last `for` (waiting `n` times). If we had put the `wait` command inside the first `for` loop, the processes would not run in parallel.
 
-## Further reading:
-https://blog.chromium.org/2008/09/multi-process-architecture.html
+## Further Reading
 
-## References:
-https://stackoverflow.com/questions/985051/what-is-the-purpose-of-fork   
-https://stackoverflow.com/questions/5839519/motivation-for-spawning-a-new-process-v-thread   
-https://www.scaler.com/topics/c-fork/   
-https://en.wikipedia.org/wiki/Pipeline_(Unix)    
-https://en.wikipedia.org/wiki/Fork_bomb   
-https://www.geeksforgeeks.org/fork-practice-questions/
+- https://blog.chromium.org/2008/09/multi-process-architecture.html
+
+## References
+
+- https://stackoverflow.com/questions/985051/what-is-the-purpose-of-fork
+- https://stackoverflow.com/questions/5839519/motivation-for-spawning-a-new-process-v-thread
+- https://www.scaler.com/topics/c-fork/
+- https://en.wikipedia.org/wiki/Pipeline_(Unix)
+- https://en.wikipedia.org/wiki/Fork_bomb
+- https://www.geeksforgeeks.org/fork-practice-questions/
