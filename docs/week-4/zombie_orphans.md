@@ -34,7 +34,7 @@ Let's now verify in action the zombie process. To try this at your own device, r
 ![zombie code](/img/zombie.png)
 
 <details>
-<summary><i>🍵 Coffee brake with a meme</i></summary>
+<summary><i>🍵 Coffee break with a meme</i></summary>
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/ab/Zombie_process.png)
 </details>
