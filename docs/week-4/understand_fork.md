@@ -76,7 +76,7 @@ Before getting deeper, there is a sample code we will give you. It will generate
 
 **Usage** :
 
-1. create a file named `forks.log`
+1. Create a file named `forks.log`
 2. Run the `script.py` code in a separate terminal
 3. Run the `template.c`
 
@@ -162,7 +162,7 @@ int main() {
 
 **Exercise 1:**
 
-![part 1 exercise 1](/img/tutoriat2part1ex1.png)
+![part 1 exercise 1](media/part1_ex1.png)
 
 <details>
 <summary><i>💡Solution</i></summary>
@@ -182,7 +182,7 @@ First, the first `fork()` is done, then `if(!fork())` means that the code contin
 
 **Exercise 2**
 
-![part 1 exercise 2](/img/tutoriat2part1ex2.png)
+![part 1 exercise 2](media/part1_ex2.png)
 
 <details>
 <summary><i>💡Solution</i></summary>
@@ -202,7 +202,7 @@ First, the first `fork()` is done, then `if(fork())` means that the code continu
 
 **Exercise 3:**
 
-![part 1 exercise 3](/img/tutoriat2part1exercise3.png)
+![part 1 exercise 3](media/part1_ex3.png)
 
 <details>
 <summary><i>💡Solution</i></summary>
@@ -225,7 +225,7 @@ if(!fork()){
 
 **Exercise 4 (try to solve it and then verify the solution with the [sample code](#sample-for-code-visualization))**
 
-![part 1 exercise 4](/img/tutoriat2part1exercise4.png)
+![part 1 exercise 4](media/part1_ex4.png)
 
 ### Part 2 - Having the code, create the image
 
@@ -242,10 +242,10 @@ for(int i = 0; i < 2; i ++){
 <details>
 <summary><i>💡Solution</i></summary>
 
-![part 2 exercise 1](/img/tutoriat2part2exercise1.png)
+![part 2 exercise 1](media/part2_ex1.png)
 
 Explanation:
-![part2 exercise 1 solved](/img/tutoriat2part2exercise1solve.png)
+![part2 exercise 1 solved](media/part2_ex1_solution.png)
 
 </details>
 
@@ -265,7 +265,7 @@ for(int i = 0; i < n; i ++){
 <details>
 <summary><i>💡Solution</i></summary>
 
-![part 2 exercise 2](/img/tutoriat2part2exercise2.png)
+![part 2 exercise 2](media/part2_ex2.png)
 
 Formula: 2^(n \* (n + 1) / 2) - 1
 
@@ -285,7 +285,7 @@ if(fork() || fork()){
 <details>
 <summary><i>💡Solution</i></summary>
 
-![exercise 3](/img/tutoriat2part2exercise3.png)
+![exercise 3](media/part2_ex3.png)
 
 This one is tricky. First it does the fork() and now we have the parent and the child.
 The parent returns something > 0 and the child returns 0. The `||` goes to the next element if we have false on the first argument

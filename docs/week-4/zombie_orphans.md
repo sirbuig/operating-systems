@@ -33,7 +33,7 @@ int main(){
 ```
 
 Let's now verify in action the zombie process. To try this on your own device, run on the left side of the screen `zombie-code.c`, and on the right side on other terminal `top`.
-![zombie code](/img/zombie.png)
+![zombie code](media/zombie.png)
 
 <details>
 <summary><i>🍵 Coffee break with a meme</i></summary>
