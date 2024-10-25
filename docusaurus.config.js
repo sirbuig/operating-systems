@@ -55,9 +55,8 @@ const config = {
           trackingID: 'G-8Q3QZEXGW9',
           anonymizeIP: true,
         },
-
         sitemap: {
-          lastmod: '2024-10-25',
+          lastmod: 'date',
           changefreq: 'weekly',
           priority: 0.5,
           ignorePatterns: ['/tags/**'],
