@@ -55,6 +55,19 @@ const config = {
           trackingID: 'G-8Q3QZEXGW9',
           anonymizeIP: true,
         },
+
+        sitemap: {
+          lastmod: '2024-10-25',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
+        },
       }),
     ],
   ],
