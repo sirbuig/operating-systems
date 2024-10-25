@@ -28,7 +28,7 @@ One of the main features of C is its simplicity. Compared to C++ (which is argua
 
 Leaving the technicalities aside, C's legacy isn’t something you can easily overthrow.
 
-Linus Torvalds, creator of the Linux operating system and maintainer of the Linux kernel, along with other developers, has resisted the introduction of other programming languages into the kernel over the years. 
+Linus Torvalds, creator of the Linux operating system and maintainer of the Linux kernel, along with other developers, has resisted the introduction of other programming languages into the kernel over the years.
 
 Although the [arguments given back then](https://lore.kernel.org/all/alpine.LFD.0.999.0709061839510.5626@evo.linux-foundation.org/) may no longer be as relevant (since programming languages have evolved, especially C++), it shows how much bias can impact a project.
 
@@ -39,6 +39,7 @@ If you want to document more on the situation, check out [this](https://youtu.be
 All in all, C is here to stay and is essential if you want to dig deeper in the world of operating systems and everything embedded.
 
 ### References
+
 - [Torvalds - "Nothing better than C"](https://x.com/nixcraft/status/1371787200455528450)
 - [Why is C used for writing drivers and OS codes?](https://stackoverflow.com/questions/984866/why-is-c-used-for-writing-drivers-and-os-codes)
 - [KU Leuven - Introduction to C](https://kuleuven-diepenbeek.github.io/osc-course/ch2-c/)
