@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: Motivation for Learning C in Operating Systems
+description: Understand why C is a fundamental language for operating systems development and its enduring relevance in the tech world.
+keywords: [C programming, operating systems, kernel development, embedded systems, Linux]
 ---
 
 # Motivation

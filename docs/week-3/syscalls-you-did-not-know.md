@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: Syscalls You Didn't Know
+description: Explore lesser-known system calls and commands to enhance your understanding of operating system principles.
+keywords: [syscalls, vmstat, iostat, top, Linux, system monitoring, operating systems]
 ---
 
 # Syscalls you didn't know

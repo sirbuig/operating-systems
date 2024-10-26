@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: Exercise 1 Size of Files
+description: Learn how to determine the size of files in a directory using C programming. This exercise covers directory handling, file operations, and system calls.
+keywords: [C programming, file size, directory handling, system calls, file operations]
 ---
 
 # Exercise 1 (easy) - Size of files

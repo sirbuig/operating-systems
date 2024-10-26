@@ -1,5 +1,8 @@
 ---
 sidebar_position: 2
+title: Exercise 2 - Search word
+description: Search for a specific string in multiple text files
+keywords: [Buffer, String Search, File Handling, C Programming, Text Processing, Directory Traversal, Edge Cases, File I/O, fopen, opendir, readdir]
 ---
 
 # Exercise 2 (hard) - Search word
