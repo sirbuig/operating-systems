@@ -1,8 +1,13 @@
 ---
 sidebar_position: 2
+title: Exercise 2 - Search the word
+
+description: Search for a specific string in multiple text files
+keywords: [Buffer, String Search, File Handling, C Programming, Text Processing, Directory Traversal, Edge Cases, File I/O, fopen, opendir, readdir]
 ---
 
-# Exercise 2 (hard) - Search word
+# Exercise 2 (hard) - Search the word
+
 What am I doing at this hour?
 
 Around 60% of the problem is similar with exercise 1, so make sure to do that one first, and then come back here.
