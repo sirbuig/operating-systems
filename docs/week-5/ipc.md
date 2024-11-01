@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Inter-process communication
 
 Processes executing concurrently can be either **independent** or **cooperating**.
@@ -24,6 +28,16 @@ There are 2 ways to do this: either by having a **shared memory**, which means t
 
 ![ipc_models](media/ipc_models.png)
 
-### Shared memory model
+## Shared memory model
 
 IPC using shared memory requires a region of _shared memory_.
+
+The region resides in the address space of the process creating the shared-memory segment and every other process that wishes to communicate must attach it to their address space.
+
+However, operating systems do not allow one process from accessing the memory of another one, so this model can only be done if 2 or more processes agree to remove this restriction.
+
+The form of the data and the location **are NOT** under the operating system's control and the processes must make sure they are not writing in the same location at the same time (this will lead in the next chapters to the concept of synchronization).
+
+### POSIX Shared Memory
+
+TODO
