@@ -5,12 +5,13 @@ sidebar_position: 1
 
 # Welcome to the Operating Systems tutoring 2024 - 2025
 
-:::tip upcoming week (4)
+:::tip upcoming week (6)
 
-- Talk about `why` you should learn Operating Systems
-- **Processes** (`fork()`), why you should use them, visual representation for multiple processes with parents and children, real-world examples and exercises
-- **Zombie and orphan processes** + code examples
-- **Threads**
+- Talk about `Synchronization` + motivation
+- **Deadlocks**
+- **Mutex**
+- **Semaphores**
+- Plenty of lab exercises!
 
 :::
 
@@ -29,7 +30,11 @@ Each `Friday`, we will meet in classroom `219` from `14:00 to 16:00`.
 
 ### [WEEK 3](https://sirbuig.github.io/operating-systems/category/week-3)
 
-### WEEK 4 (upcoming on 25/10/2024 14:00)
+### [WEEK 4](https://sirbuig.github.io/operating-systems/category/week-4)
+
+### [WEEK 5](https://sirbuig.github.io/operating-systems/category/week-5)
+
+### WEEK 6 (TBA)
 
 ## Tutors:
 
