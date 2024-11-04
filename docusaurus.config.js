@@ -76,8 +76,11 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      metadata : [
+        {name: 'keywords', content: 'Operating Systems, Tutoring, FMI, University of Bucharest, OS, Operating Systems Tutoring, Operating Systems Tutoring FMI, Operating Systems Tutoring University of Bucharest'},
+      ],
       navbar: {
-        title: 'Operating Systems',
+        title: 'Operating Systems Tutoring FMI',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',

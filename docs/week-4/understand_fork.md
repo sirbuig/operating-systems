@@ -1,3 +1,10 @@
+---
+sidebar_position: 1
+title: Understanding Fork in Operating Systems
+description: A comprehensive guide to understanding the fork() system call in Unix-like operating systems. Learn the concept, motivation, practical applications, and see examples of how fork() is used in code.
+keywords: [fork(), process creation, Unix, operating systems, C programming, process management, fork examples, fork applications]
+---
+
 # Understand the process creation
 
 Concept, motivation, code, examples
