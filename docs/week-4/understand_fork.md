@@ -295,6 +295,8 @@ The last fork is done for each parent from the if statement. We have (1 || 0), (
 
 If it is not yer clear, try with more forks in the if statement. For example `if(fork() || fork() || fork() )`
 
+![fork_or_fork](media/fork_or_fork.jpeg)
+
 </details>
 
 **Exercise 4 (try yourself now and verify with the [sample code](#sample-for-code-visualization))**
