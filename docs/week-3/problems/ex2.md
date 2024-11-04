@@ -13,17 +13,22 @@ What am I doing at this hour?
 Around 60% of the problem is similar with exercise 1, so make sure to do that one first, and then come back here.
 
 ### Description
-Given a folder "tests01" with 3 .txt files and a string (char *), search for its appearance in each file.
+
+Given a folder "tests01" with 3 .txt files and a string (char \*), search for its appearance in each file.
 If it is found, write into a file "output.txt" the name of the file in which you found it, and a string of 70 characters which includes the search string.
 
 You should use for this problem a buffer (read x characters at a time), imagine that the .txt might have a size of 20 GB.
 
 I recommend to create a function named : `void searchCharacters(char* input)` which writes in output.txt the result and takes as input the search string. It is faster this way 😊
+
 #### [Download the test folder](/downloads/tests01.zip)
 
 ---
-### Example 1:
+
+### Example 1
+
 By running the code for the string : "into", the file "output.txt" will look like this:
+
 ```txt
 file1 copy.txt
 l of excitement. As they walked deeper into the forest, the towering trees
@@ -44,8 +49,10 @@ test3.txt
 into
 ```
 
-### Example 2:
+### Example 2
+
 For the word "distance":
+
 ```txt
 file1 copy.txt
 ey sat down to eat, Iris noticed something odd. In the distance, nestled betwe
@@ -58,13 +65,15 @@ ey sat down to eat, Iris noticed something odd. In the distance, nestled betwe
 
 ### Idea
 
-There are more things to do, so we will split them in mini-tasks : 
+There are more things to do, so we will split them in mini-tasks :
+
 - find a way to open the folder and see the name for the each file
 - Open the file
 - Create a `buffer` that fills up with characters and verify if the search string is in it.
 - write the findings into another file "output.txt"
 
-> **_QUESTION:_**  Do you find any possible edge cases?
+> **_QUESTION:_** Do you find any possible edge cases?
+
 <details>
 <summary><i>💡Answer</i></summary>
 
@@ -74,26 +83,26 @@ There are more things to do, so we will split them in mini-tasks :
 - What if you have the size of the file is not a multiple of the buffer size? (just 5 characters)
 </details>
 
-> **_QUESTION:_**  How many buffers do we need for each iteration?
+> **_QUESTION:_** How many buffers do we need for each iteration?
 
 Having this questions in mind, let's start crafting :))
 
 <details>
 <summary><i>🤖I'll leave the code here</i></summary>
 
-```c 
+```c
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h> 
-#include <fcntl.h> 
-#include <unistd.h> 
+#include <errno.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <sys/stat.h>
 #include <dirent.h>
 #include <string.h>
 
 void searchCharacters(char* input){
     FILE * file = fopen("output.txt", "w");
- 
+
     struct dirent *entry; // contains informations about a director file
     DIR *dir = opendir("tests01");
 
@@ -112,7 +121,7 @@ void searchCharacters(char* input){
             snprintf(path, sizeof(path), "tests01/%s", entry->d_name);
             //helpful for lab 2
             int file_descriptor = open(path, O_RDONLY);
-            
+
             stat(entry->d_name, &statbuf); //informations about the file are put in statbuf
 
             int size = statbuf.st_size;
@@ -132,7 +141,7 @@ void searchCharacters(char* input){
             }
 
             while((byte_oprire = read(file_descriptor, buffer, buff_size)) > 0){
-                
+
                 memcpy(combined_buffer, previous_buffer, input_size);
                 memcpy(combined_buffer + input_size, buffer, byte_oprire);
                 if (strstr(combined_buffer, input) != NULL) {
@@ -146,7 +155,7 @@ void searchCharacters(char* input){
             free(previous_buffer);
             free(combined_buffer);
         }
-    
+
     }
     closedir(dir);
     fclose(file);
@@ -158,4 +167,5 @@ int main()
     return 0;
 }
 ```
+
 </details>
