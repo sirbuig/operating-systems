@@ -86,7 +86,7 @@ If `retval` is not NULL, `pthread_join()` copies the value that the target threa
 ## Further Reading
 
 - [What’s the Diff: Programs, Processes, and Threads](https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/)
-- [FANG Interview Question | Process vs Thread](https://youtu.be/4rLW7zg21gI?feature=shared)
+- [FAANG Interview Question | Process vs Thread](https://youtu.be/4rLW7zg21gI?feature=shared)
 - [Neso Academy - Introduction to Threads](https://youtu.be/LOfGJcVnvAk?feature=shared)
 - [Concurrency is not Parallelism by Rob Pike](https://youtu.be/oV9rvDllKEg?feature=shared)
 

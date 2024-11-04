@@ -1,0 +1,106 @@
+---
+sidebar_position: 7
+---
+
+import Admonition from "@theme/Admonition";
+
+# Exercise 7
+
+Write a multithreaded program that takes a matrix and multiplies each element in every row with a given scalar.
+
+The program should create a separate thread to handle the multiplication of each row in the matrix by the scalar.
+
+Once all threads complete their calculations, the program should return a new matrix with the updated values.
+
+<Admonition type="tip" icon="🕵️" title="HINT">
+As you saw earlier, the routine takes only one argument, but in this case you may need to pass multiple values.
+
+Consider using a `struct` to encapsulate multiple values into a single `arg`!
+
+</Admonition>
+
+<details>
+
+<summary>💡Solution</summary>
+
+```c title="threads_7.c"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <errno.h>
+
+#define ROWS 3
+#define COLUMNS 4
+
+typedef struct
+{
+    int *row;
+    int columns;
+    int scalar;
+    int *result;
+} Matrix;
+
+void *multiply(void *args)
+{
+    Matrix *mArgs = (Matrix *)args;
+    for(int i = 0; i < mArgs->columns; i++)
+    {
+        mArgs->result[i] = mArgs->row[i] * mArgs->scalar;
+    }
+
+    return NULL;
+}
+
+int main()
+{
+    int matrix[3][4] =
+    {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+
+    int result[3][4];
+
+    pthread_t threads[3];
+    Matrix args[3];
+
+    for(int i = 0; i < ROWS; i++)
+    {
+        args[i].row = matrix[i];
+        args[i].columns = COLUMNS;
+        args[i].scalar = 5;
+        args[i].result = result[i];
+
+        if(pthread_create(&threads[i], NULL, multiply, &args[i]))
+        {
+            perror(NULL);
+            return errno;
+        }
+    }
+
+    for(int i = 0; i < ROWS; i++)
+    {
+        if(pthread_join(threads[i], NULL))
+        {
+            perror(NULL);
+            return errno;
+        }
+    }
+
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLUMNS; j++)
+        {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+```
+
+</details>
