@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Exercise 1
+# IPC - Exercise 1
 
 Set up a shared memory for communication between a parent and a child process.
 
