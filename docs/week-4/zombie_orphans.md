@@ -1,3 +1,10 @@
+---
+sidebar_position: 2
+title: Understanding Zombie and Orphan Processes
+description: Learn about zombie and orphan processes in operating systems, including their definitions, examples, and how to handle them.
+keywords: [zombie process, orphan process, operating systems, process management, fork, wait, C programming]
+---
+
 # Zombies and orphans
 
 Normal topics around here.
