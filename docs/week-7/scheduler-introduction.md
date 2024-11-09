@@ -2,7 +2,6 @@
 sidebar_position: 1
 title: CPU Scheduler Introduction
 description: Learn the fundamentals of CPU scheduling, including key concepts, scheduling criteria, and real-world applications. Understand preemptive and nonpreemptive scheduling, dispatcher latency, and more.
-keywords: CPU scheduling, operating systems, scheduling algorithms, preemptive scheduling, nonpreemptive scheduling, dispatcher latency, burst duration, context switch
 ---
 
 # CPU Scheduler introduction
@@ -153,6 +152,14 @@ Ideally, users should see engaging content immediately or soon after starting a 
 5. **Response Time → Immediate User Interaction**   
 In CPU scheduling, response time is the time it takes for the system to start responding to a process. 
 On YouTube, this relates to how quickly users interact with a video (clicking on it, watching, or taking some other action).
+
+## Philosophical questions
+
+Can two processes running slightly different programs concurrently halt at the same physical address? If no, why? If yes, give example.   
+
+Can we interrupt an I/O operation?    
+Follow-up : If we can, where do we store the values from the kernel operations at context switch? [solution](https://stackoverflow.com/questions/12911841/kernel-stack-and-user-space-stack) + [this one](https://cs.stackexchange.com/questions/96550/whats-the-difference-between-user-registers-and-kernel-registers)
+
 
 ## Further reading 
 - [More about context switches](https://eli.thegreenplace.net/2018/measuring-context-switching-and-memory-overheads-for-linux-threads/)
