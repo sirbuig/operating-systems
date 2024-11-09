@@ -64,7 +64,7 @@ Generalized : `tn+1 = alpha * tn + ... + (1 - alpha)^j * alpha * Tn-j + ... + (1
 We can choose alpha = 1/2 : recent history and past history are equally weighted.
 Example : 
 
-![img_1.png](media/img_1.png)
+![img_1.png](media/img_1.png)   
 T0 = 10, t1 = 6. alpha = 1/2
 
 T1 = 1/2 * 6 + (1 - 1/2) * 10 = 8   
@@ -80,34 +80,22 @@ CPU scheduling decisions may take place when a process:
 3. Switches from **waiting to ready** (e.g. at completion of I/O)
 4. Terminates
 
-1 & 4 => nonpreemptive
+1 & 4 => nonpreemptive   
 All of them => preemptive
 
 > Under nonpreemptive scheduling, once the CPU has been allocated
-to a process, the process keeps the CPU until it releases it either by terminating
+to a process, the process keeps the CPU until it releases either by terminating
 or by switching to the waiting state.
+![img_1.png](media/week-7-7.png)
 
 > Whereas, preemptive scheduling, can change between processes multiple times until they finish.
+![img.png](media/week-7-6.png)
 
 `Question` : We talked about now about processes, but what about kernel mode? When we do a syscall the processes
 interrupts and waits a response from kernel (read, open file, etc.). <u> This task is preemptive, or not? </u>  
 (For the answer you can read the pages 202 and 262 from this [book](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf))
 
-Here is an useful table comparing preemptive and non-preemptive scheduling taken from [keeksforgeeks.org](https://www.geeksforgeeks.org/preemptive-and-non-preemptive-scheduling/)
-| Parameter	| PREEMPTIVE SCHEDULING	| NON-PREEMPTIVE SCHEDULING
-| :---------------- | :------: | ----: |
-| Basic	| In this resources(CPU Cycle) are allocated to a process for a limited time. | Once resources(CPU Cycle) are allocated to a process, the process holds it till it completes its burst time or switches to waiting state
-| Interrupt	| Process can be interrupted in between. | Process can not be interrupted until it terminates itself or its time is up
-| Starvation |	If a process having high priority frequently arrives in the ready queue, a low priority process may starve | If a process with a long burst time is running CPU, then later coming process with less CPU burst time may starve
-| Overhead	| It has overheads of scheduling the processes | It does not have overheads
-| Flexibility |	flexible | Rigid
-| Cost	| Cost associated | No cost associated
-| CPU Utilization	| In preemptive scheduling, CPU utilization is high	| It is low in non preemptive scheduling
-| Waiting Time | Preemptive scheduling waiting time is less	| Non-preemptive scheduling waiting time is high
-| Response Time | Preemptive scheduling response time is less | Non-preemptive scheduling response time is high
-| Decision making |	Decisions are made by the scheduler and are based on priority and time slice allocation	| Decisions are made by the process itself and the OS just follows the process’s instructions
-| Process control |	The OS has greater control over the scheduling of processes	 | The OS has less control over the scheduling of processes
-| Overhead	| Higher overhead due to frequent context switching	| Lower overhead since context switching is less frequent
+Moreover, for a better understanding, on [the website](https://www.geeksforgeeks.org/preemptive-and-non-preemptive-scheduling/) you'll find a useful table comparing preemptive and non-preemptive scheduling
 
 ### Dispatcher latency
 
@@ -116,7 +104,9 @@ selected by the CPU scheduler.
 > The time it takes for the dispatcher to stop one process and start
 another running is known as the dispatch latency.
 
-**IMPORTANT** : On every [context switch](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf#page=152), the dispatcher is invoked. 
+:::warning IMPORTANT
+For every [context switch](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf#page=152), the dispatcher is invoked. 
+::: 
 
 :::tip fun fact
 
@@ -130,7 +120,7 @@ Also, with `vmstat 1 3` you can see the total context switches over a 3-second p
 Below, it will be shown when process stop running on the CPU: 
 ![img_4.png](media/img_4.png)
 
-More could be written at [page 113](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf#page=151)
+More could be read at [page 113](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf#page=151)
 
 ## Examples of scheduler usage
 
@@ -140,7 +130,7 @@ More could be written at [page 113](https://os.ecci.ucr.ac.cr/slides/Abraham-Sil
   - In HPC, multiple tasks need to be scheduled across many cores or even multiple computers. CPU scheduling concepts help allocate tasks efficiently, balancing loads and minimizing idle times.
 - Mobile Application Development
   - Mobile devices have limited resources, so efficient scheduling is critical to avoid battery drain and maintain performance. Mobile OS schedulers prioritize tasks based on CPU, GPU, and memory usage.
-  - An example is [this article](https://www.researchgate.net/publication/261318367_Towards_Power-Efficient_Smartphones_by_Energy-Aware_Dynamic_Task_Scheduling) that talks about a scheduler for power-efficient smartphones
+  - [this article](https://www.researchgate.net/publication/261318367_Towards_Power-Efficient_Smartphones_by_Energy-Aware_Dynamic_Task_Scheduling) that talks about a scheduler for power-efficient smartphones
 
 Extreme example `YouTube`:   
 We can think about the YouTube scheduling recommendation algorithm as analogy for CPU scheduling. Now, let's take each criteria and convert it in YouTube mindset.
