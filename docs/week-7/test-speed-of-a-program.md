@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Test the speed of a program
+# Test the runtime of a program
 
 How can we estimate the time a program takes to run?
 - Measure the actual runtime (or potentially capture CPU cycles).   
@@ -36,7 +36,7 @@ This can be done via this command `sudo taskset -c 1 chrt -r 99 ./test`.
 
 
 <details>
-<summary><i>Code</i></summary>
+<summary><i>🤖 Code</i></summary>
 
 ```cpp 
 #define _POSIX_C_SOURCE 199309L // Enable clock_gettime() and related functions

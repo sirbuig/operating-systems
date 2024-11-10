@@ -15,7 +15,6 @@ Here we will see how those algorithms work :
 - Priority Scheduling + Round Robin
 :::
 
-Test the algorithms with [this website](https://cpu-scheduling-algorithm-visualiser.netlify.app/)  
 
 ![img.png](media/algorithms_scheduler.png)
 ### First come, First-Served Scheduling (FCFS)
@@ -55,7 +54,7 @@ Waiting time: (6 + 0 + 3)/3 = 3ms (much less than 17)
 
 :::important question
 
-**How can we test the speed of a program?** For P3 we had a burst time of 3ms, but in real life it took
+**How can we test the runtime of a program?** For P3 we had a burst time of 3ms, but in real life it took
 30ms to run (10 times more), and this number solely depends on the scheduler. 
 
 Find the answer on [this page](https://sirbuig.github.io/operating-systems/category/weeks-1-2/test-speed-of-a-program.md)
