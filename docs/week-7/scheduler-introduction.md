@@ -134,7 +134,7 @@ More could be read at [page 113](https://os.ecci.ucr.ac.cr/slides/Abraham-Silber
 Extreme example `YouTube`:   
 We can think about the YouTube scheduling recommendation algorithm as analogy for CPU scheduling. Now, let's take each criteria and convert it in YouTube mindset.
 
-1. **CPU utilization -> User Engagement**  
+1. **CPU utilization → User Engagement**  
 In CPU scheduling, maximizing CPU utilization ensures that the processor is busy most of the time, making efficient use of resources. 
 For YouTube’s recommendation algorithm, this translates to maximizing user engagement, 
 which involves keeping users watching videos for extended periods.
