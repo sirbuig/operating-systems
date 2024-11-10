@@ -35,7 +35,7 @@ Each `Friday`, we will meet in classroom `219` from `14:00 to 16:00`.
 
 ### [WEEK 5: ipc & threads](https://sirbuig.github.io/operating-systems/category/week-5)
 
-### WEEK 6 (TBA)
+### [WEEK 6: synchronization tools](https://sirbuig.github.io/operating-systems/category/week-6)
 
 ## Tutors:
 
