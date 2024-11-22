@@ -39,6 +39,8 @@ Each `Friday`, we will meet in classroom `219` from `14:00 to 16:00`.
 
 ### [WEEK 7: CPU scheduling](https://sirbuig.github.io/operating-systems/category/week-7)
 
+### [WEEK 8: synchronization examples + CPU scheduling pt 2](https://sirbuig.github.io/operating-systems/category/week-8)
+
 ## Tutors:
 
 [Iulia Sirbu](https://github.com/sirbuig)  
