@@ -41,6 +41,10 @@ Each `Friday`, we will meet in classroom `219` from `14:00 to 16:00`.
 
 ### [WEEK 8: synchronization examples + CPU scheduling pt 2](https://sirbuig.github.io/operating-systems/category/week-8)
 
+### WEEK 9: -
+
+### [WEEK 10: main and virtual memory](https://sirbuig.github.io/operating-systems/category/week-10)
+
 ## Tutors:
 
 [Iulia Sirbu](https://github.com/sirbuig)  
