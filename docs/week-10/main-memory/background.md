@@ -57,7 +57,7 @@ A program starts as a **binary executable file** stored on disk. To run, it is l
 
 Most systems allow processes to be loaded into **any part of physical memory**, so the starting address of a process doesn’t have to be 00000, even though the computer's memory address space might begin there. The operating system decides where to place each process in memory.
 
-Before a program runs, it often goes through multiple steps, some optional. During these steps, **addresse**s are represented in different forms. In the source code, addresses are **symbolic**, like variable names (e.g., `count`). A compiler converts these to **relocatable addresses** (e.g., “14 bytes from the start of this module”). Finally, the linker or loader maps the relocatable addresses to **absolute addresses** (e.g., 74014). Each step involves translating addresses from one form to another.
+Before a program runs, it often goes through multiple steps, some optional. During these steps, **addresses** are represented in different forms. In the source code, addresses are **symbolic**, like variable names (e.g., `count`). A compiler converts these to **relocatable addresses** (e.g., “14 bytes from the start of this module”). Finally, the linker or loader maps the relocatable addresses to **absolute addresses** (e.g., 74014). Each step involves translating addresses from one form to another.
 
 ![multistep processing](media/multistep_user_program.png)
 
