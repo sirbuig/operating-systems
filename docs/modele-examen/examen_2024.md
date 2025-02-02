@@ -74,7 +74,7 @@ Fie un procesor pe 6-biti cu paginare ce emite adrese logice de tip:
 
 - Teorie: Exista fragmentare interna si externa. Interna se afla daca avem un frame care nu este completat in totalitate. Externa daca avem Frame 1 ocupat, Frame 2 liber, Frame 3 ocupat.
 
-- Raspuns: Avem `fragmentare interna` in acest caz pe frame-ul 2 unde sunt ocupati doar 4 bytes din 16 bytes. (Si raman 10 bytes nefolosibili)
+- Raspuns: Avem `fragmentare interna` in acest caz pe frame-ul 2 unde sunt ocupati doar 4 bytes din 16 bytes. (Si raman 12 bytes nefolosibili)
 
 `Unde se afla v[5] si cum arata adresa logica pentru acces?`
 
@@ -138,7 +138,7 @@ Fie un sistem de fisiere cu strategie de alocare bazate pe indexare pe doua nive
 
 `Cati indecsi pot fi inmagazinati in primul nivel?`
 
-- **Teorie:** Multilevel Index represinta conceptul de a avea un block de 128 bytes cu pointeri catre alte blocuri (folder cu foldere), iar dupa acele blocuri fiecare are pointeri catre fisiere.(pagina 576 Chapter 14 carte) `Pe romana : Un folder cu foldere, fiecare avand fisiere. `
+- **Teorie:** Multilevel Index represinta conceptul de a avea un block de 128 bytes cu pointeri catre alte blocuri (folder cu foldere), iar dupa acele blocuri fiecare are pointeri catre fisiere (pagina 576, Chapter 14 din carte). `Practic: Un folder cu foldere, fiecare avand fisiere. `
 
 - **Raspuns:**
   - CPU pe 16-biti -> un pointer este pe 2 bytes
@@ -159,7 +159,7 @@ Fie un sistem de fisiere cu strategie de alocare bazate pe indexare pe doua nive
 - **Raspuns:**
   - Putem presupune prin absurd ca avem un fisier cat toata dimensiunea memoriei hard.
   - avem 64 de blocuri, fiecare cu 64 de pointeri catre blocuri de 128 bytes
-  - 64 _ 64 _ 128 = 2^6 _ 2^6 _ 2^7 = 2^19 = 524,288 bytes
+  - 64 \* 64 \* 128 = 2^6 \* 2^6 \* 2^7 = 2^19 = 524,288 bytes
 
 `Cum este tradusa o adresa logica in adresa blocurilor la nivelul sistemului de fisiere?`
 
