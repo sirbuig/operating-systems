@@ -32,9 +32,11 @@ for(i = 0; i < n; i++){
 - Raspuns:
   - Avem un loop care merge de n ori => n*2 fork() = 2^(n*2) procese create.
   - Pentru i = 0 avem 2 threaduri
-  - Pentru i = 1 avem 2 threaduri + 8 threaduri
-  - Pentru i = 2 avem 2 + 8 + 32 threaduri
+  - Pentru i = 1 avem 8 threaduri noi
+  - Pentru i = 2 avem 32 threaduri noi
+  - Deci pentru un for pana la 3 avem 42 de threaduri
   - Algoritmul general (just for fun): 2(4^n - 1)/3 threaduri
+  - Daca verficam cu algoritmul de mai sus, da varianta corecta
 
 ## Exercitiul 3
 
