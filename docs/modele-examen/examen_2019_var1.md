@@ -32,9 +32,12 @@ for(i = 0; i < n; i++){
 - Raspuns:
   - Avem un loop care merge de n ori => n*2 fork() = 2^(n*2) procese create.
   - Pentru i = 0 avem 2 threaduri
-  - Pentru i = 1 avem 2 threaduri + 8 threaduri
-  - Pentru i = 2 avem 2 + 8 + 32 threaduri
+  - Pentru i = 1 avem 8 threaduri noi
+  - Pentru i = 2 avem 32 threaduri noi
+  - Deci pentru un for pana la 3 avem 42 de threaduri
   - Algoritmul general (just for fun): 2(4^n - 1)/3 threaduri
+  - Daca verficam cu algoritmul de mai sus, da varianta corecta
+
 
 ## Exercitiul 3
 
@@ -105,8 +108,12 @@ for(j = 0; j < 5; j++) {
 `Cum arata programul si datele repartizate pe pagini?`
 
 - Raspuns:
-  - Pentru primul program, fiecare linie poate fi pusa intr-o singura pagina (10 intregi per pagina), deci o sa avem nevoie de 10 pagini + o pagina pentru program = `11 pagini`
-  - Pentru al doilea program, 2 linii pot fi puse pe o pagina, deci o sa avem nevoie de 3 pagini (2 pagini pentru primele 4 linii si o pagina pentru ultima linie, cu o fragmentare interna de 5 intregi) + o pagina pentru programul in sine = `4 pagini`
+  - A este alocat static, deci va fi acelasi model pentru ambele programe.
+  - Fiecare linie poate fi pusa intr-o singura pagina (10 intregi per pagina), deci o sa avem nevoie de 10 pagini + o pagina pentru program = `11 pagini`
+
+Exemplu vizual cum arata liniile asezate:
+
+![Model_ex4](media/VAR1_ex4.png)
 
 `Folosind algoritmul LRU, care este programul eficient? De ce?`
 
@@ -116,9 +123,14 @@ for(j = 0; j < 5; j++) {
 
   - Programul eficient este P1, deoarece nu o sa aiba atatea page faulturi ca P2.
 
+  - **Hint:** fiecare culoare reprezinta o iteratie (la P1 avem aceeasi culoare pe linii, deoarece se completeaza secvential. La P2 urmariti aceeasi culoare sa vedeti "sariturile" intre pagini)
   - Explicatie P1: Pe primul frame punem programul, dupa executam A[0][0] = 0. Avem page fault, cautam prima pagina cu prima linie si o punem in frame din disk. Dupa pentru urmatoarele 9 elemente nu o sa avem probleme. Continuand tot asa o sa avem in `total 10 page faulturi (pentru fiecare linie)`.
 
-  - Explicatie P2: Pe primul frame pune programul, dupa executam A[0][0] = 0, page fault, dupa A[1][0] = 0, e ok pentru ca suntem in aceeasi pagina, dupa A[2][0] = 0 si dam page fault. Problema este ca mergem pe coloane, iar noi avem matricile pus in memorie pe linii (imaginati-va un vector super lung in dreapta). Iar mergand pe coloane, o sa fie 'haotic'. Deci o sa avem in total `15 page faulturi`.
+  - ![Completare_linii](media/VAR1_ex4_P1.png)
+
+  - Explicatie P2: Pe primul frame pune programul, dupa executam A[0][0] = 0, page fault, dupa A[1][0] = 0, din nou page fault pentru ca "sarim" pe alta pagina, dupa A[2][0] = 0 si dam page fault etc. Problema este ca mergem pe coloane, iar noi avem matricile puse in memorie pe linii (imaginati-va un vector super lung in dreapta). Iar mergand pe coloane, o sa fie 'haotic'. Deci o sa avem in total `25 page faulturi`.
+
+  - ![Completare_coloane](media/VAR1_ex4_P2.png)
 
 `Cum arata diagramele Gannt pentru P1 si P2?`
 

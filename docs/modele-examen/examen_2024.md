@@ -74,7 +74,7 @@ Fie un procesor pe 6-biti cu paginare ce emite adrese logice de tip:
 
 - Teorie: Exista fragmentare interna si externa. Interna se afla daca avem un frame care nu este completat in totalitate. Externa daca avem Frame 1 ocupat, Frame 2 liber, Frame 3 ocupat.
 
-- Raspuns: Avem `fragmentare interna` in acest caz pe frame-ul 2 unde sunt ocupati doar 4 bytes din 16 bytes. (Si raman 10 bytes nefolosibili)
+- Raspuns: Avem `fragmentare interna` in acest caz pe frame-ul 2 unde sunt ocupati doar 4 bytes din 16 bytes. (Si raman 12 bytes nefolosibili)
 
 `Unde se afla v[5] si cum arata adresa logica pentru acces?`
 
@@ -138,7 +138,7 @@ Fie un sistem de fisiere cu strategie de alocare bazate pe indexare pe doua nive
 
 `Cati indecsi pot fi inmagazinati in primul nivel?`
 
-- **Teorie:** Multilevel Index represinta conceptul de a avea un block de 128 bytes cu pointeri catre alte blocuri (folder cu foldere), iar dupa acele blocuri fiecare are pointeri catre fisiere.(pagina 576 Chapter 14 carte) `Pe romana : Un folder cu foldere, fiecare avand fisiere. `
+- **Teorie:** Multilevel Index represinta conceptul de a avea un block de 128 bytes cu pointeri catre alte blocuri (folder cu foldere), iar dupa acele blocuri fiecare are pointeri catre fisiere (pagina 576, Chapter 14 din carte). `Practic: Un folder cu foldere, fiecare avand fisiere. `
 
 - **Raspuns:**
   - CPU pe 16-biti -> un pointer este pe 2 bytes
@@ -159,17 +159,33 @@ Fie un sistem de fisiere cu strategie de alocare bazate pe indexare pe doua nive
 - **Raspuns:**
   - Putem presupune prin absurd ca avem un fisier cat toata dimensiunea memoriei hard.
   - avem 64 de blocuri, fiecare cu 64 de pointeri catre blocuri de 128 bytes
-  - 64 _ 64 _ 128 = 2^6 _ 2^6 _ 2^7 = 2^19 = 524,288 bytes
+  - 64 \* 64 \* 128 = 2^6 \* 2^6 \* 2^7 = 2^19 = 524,288 bytes
 
 `Cum este tradusa o adresa logica in adresa blocurilor la nivelul sistemului de fisiere?`
 
 - Raspuns:
   - Este asemanator cu paginarea de la RAM, doar ca acum avem inca un layer de pagini. (notat in desen cu w (cred))
-  - w = primul nivel (cu pointer)
+  - u = primul nivel (cu pointer)
   - d = al doilea nivel (cu pointer)
   - p = datele efective din fisier
 
 ![alt text](media/ex5.jpg)
+
+(Exista mai multe modele corecte pentru a codifica si pot detalia 4 din ele aici)
+- V1: Cum e scris mai sus, avem 7 biti pentru fiecare sectiune (chiar si pentru u si d) deoarece atunci cand vreau sa decodific
+e mai usor de codat sa ii dau direct adresa din "u" in blocul cu primul nivel (e 1 la 1) (e.g pointerul 2 incepe la locatia 2)
+- V2: Putem folosi mai putina memorie pentru pointeri (u si d), mai exact sa ocupe doar 6 biti, pentru ca sunt doar 64 de pointeri.
+Dar o sa trebuiasca sa facem un f(x) = 2*(locatia pointerului) pentru a transforma din codificare in locatia fizica (e.g
+pointerul 2 va fi pe pozitia 1 in codificare si pe pozitia 2 in frame, pentru ca un pointer ocupa 2 bytes)
+- V3: In cerinta se zice ca avem un pointer de 16 biti, deci si adresa noastra logica ar trebui sa fie in aaceste limite. 
+Acestea fiind zice va trebui sa ne limita dimnesiunea lui u,d,p astfel incat suma lor sa nu depaseasca 16 biti, ceea ce
+ne va schimba orice calcul de mai sus. (O idee ar fi sa combinam V2 u = 6 biti, d = 6 biti si p = 4 biti) (adica nici nu o sa putem
+folosi toata memoria unui frame, huh :(( )
+- V4: Am vazut cat de najpa e daca ne ducem pe V3, deci putem spune ca o sa folosim 2 pointeri pentru codificare si 
+o sa facem un MMU custom care sa ia 2 pointeri in acelasi timp. 
+
+Long story short, e examen, don't overthink it. Mergeti cu instinctul prima data, si daca aveti timp puteti da overthink.
+Prima e cea mai simpla varianta care e aproape de una corecta, fara a pierde timp super mult. 
 
 `Dar daca am mai adauga un nivel?`
 
