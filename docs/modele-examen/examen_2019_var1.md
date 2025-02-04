@@ -38,7 +38,6 @@ for(i = 0; i < n; i++){
   - Algoritmul general (just for fun): 2(4^n - 1)/3 threaduri
   - Daca verficam cu algoritmul de mai sus, da varianta corecta
 
-
 ## Exercitiul 3
 
 ```c

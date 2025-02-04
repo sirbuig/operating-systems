@@ -5,13 +5,9 @@ sidebar_position: 1
 
 # Welcome to the Operating Systems tutoring 2024 - 2025
 
-:::tip upcoming week (7)
+:::tip upcoming week (Exam session)
 
-- Talk about `CPU scheduler` & usage in other contexts
-- Burst time, dispatch latency and kernel
-- How to predict Burst time
-- (bonus) How to calculate the runtime of a program
-- CPU scheduler Algorithms
+- A final review of the material
 - Exercises
 
 :::
